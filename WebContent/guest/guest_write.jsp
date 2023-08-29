@@ -4,6 +4,28 @@
 <head>
 <meta charset="UTF-8">
 <title> </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+ function check(){
+	 if($.trim($('#gname').val()) == ''){
+		 alert('글쓴이를 입력하세요!');
+		 $('#bname').val('').focus();
+		 return false;
+	 }
+	 
+	 if($.trim($('#gtitle').val()) == ''){
+		 alert('글제목을 입력하세요!');
+		 $('#btitle').val('').focus();
+		 return false;
+	 }
+	 
+	 if($.trim($('#gcont').val()) == ''){
+		 alert('글내용을 입력하세요!');
+		 $('#bcont').val('').focus();
+		 return false;
+	 }
+ }
+</script>
 </head>
 <body>
 <%--
@@ -37,5 +59,37 @@
   			 방명록 저장 메서드 public int insertGuest(GuestVO g){}를 작성하고,
   			 방명록 목록 메서드 public List<GuestVO> getGuList(){}를 각각 작성한다.
  --%>
+ 
+ <form method="post" action="guest_ok.jsp" onsubmit="return check();">
+   <table border="1">
+    <tr>
+     <th colspan="2">jsp 방명록 글쓰기폼 문제풀이</th>
+    </tr>
+    <tr>
+     <th>글쓴이</th>
+     <td><input name="gname" id="gname" size="14" ></td>
+         <%-- type속성을 생략하면 기본값으로 text이다. text는 한줄 입력박스를 만든다. --%>
+    </tr>
+    
+    <tr>
+     <th>글제목</th>
+     <td><input name="gtitle" id="gtitle" size="36" ></td>
+    </tr>   
+    
+    <tr>
+     <th>글내용</th>
+     <td>
+      <textarea name="gcont" id="gcont" rows="10" cols="36"></textarea>
+     </td>
+    </tr>
+    
+    <tr>
+     <th colspan="2">
+      <input type="submit" value="방명록저장" >
+      <input type="reset" value="취소" onclick="$('#gname').focus();" >
+     </th>
+    </tr>
+   </table>
+  </form>
 </body>
 </html>

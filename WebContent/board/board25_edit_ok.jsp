@@ -5,7 +5,7 @@
 %>
 <jsp:useBean id="board" class="net.daum.vo.BoardVO" />
 <%-- jsp:useBean 액션태그로 BoardVO 빈클래스의 객체명 board생성 --%>
-<jsp:setProperty name="board" property="*" />
+<jsp:setProperty name="board" property="*" /> 
 <%-- 네임피라미터 이름과 빈클래스 변수명이 같으면 property속성값*로 처리해도 bno,bname,btitle,bcont 값이
 board객체에 저장되어 있다.--%>
 
